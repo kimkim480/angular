@@ -1,11 +1,18 @@
 <div class="wrapper">
-  <div class="header-container">
-    <header>
-      <a [routerLink]="['/registrar']">Registrar</a>
-      <a [routerLink]="['/consultar']">Consultar</a>
-    </header>
+  <app-header></app-header>
+
+  <div class="content-wrapper">
+    <div class="container">
+      <router-outlet></router-outlet>
+    </div>
   </div>
-  <div class="form">
-    <router-outlet></router-outlet>
-  </div>
+
+  <footer class="main-footer">
+    <div class="container">
+      <div class="pull-right hidden-xs">
+        <b>Version</b> 1.0.0
+      </div>
+      <strong>ExtraHour</strong> Angular Application
+    </div>
+  </footer>
 </div>
