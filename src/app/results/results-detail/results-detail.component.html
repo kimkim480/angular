@@ -1,0 +1,45 @@
+<div *ngIf="!(authService.user | async)">
+  <app-login></app-login>
+</div>
+
+<!-- Só mostra o conteúdo se estiver logado-->
+<div *ngIf="(authService.user | async)" class="col-6 mx-auto">
+  <div class="content">
+    <div class="box box-info">
+      <div class="box-header with-border">
+        <h3 class="box-title">Formulário</h3>
+      </div>
+      <!-- End of .box-header -->
+      <!-- Start form -->
+      <form class="form-horizontal">
+        <div class="box-body">
+          <div class="form-group">
+            <label class="col-sm-2 control-label">Nome</label>
+            <div class="col-sm-10">
+              <input class="form-control" #n ngModel placeholder="Nome" [value]="item?.name">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-2 control-label">Horas</label>
+            <div class="col-sm-10">
+              <input class="form-control" #h ngModel placeholder="Horas trabalhadas" [value]="item?.hour">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-2 control-label">Data</label>
+            <div class="col-sm-10">
+              <input class="form-control" #d ngModel placeholder="Data" [value]="item?.date">
+            </div>
+          </div>
+
+          <div class="box-footer">
+            <a class="btn btn-primary btn-flat" (click)="update({date: d.value, hour: h.value, name: n.value})">Enviar</a>
+          </div>
+        </div>
+      </form>
+    </div>
+    <!-- End of .box -->
+  </div>
+  <!-- End of .content -->
+</div>
+<!-- End of .col-md-6 -->

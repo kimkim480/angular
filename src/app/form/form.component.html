@@ -1,0 +1,46 @@
+<!-- Se não estiver logado mostra o componente de login-->
+<div *ngIf="!(authService.user | async)">
+  <app-login></app-login>
+</div>
+
+<!-- Só mostra o conteúdo se estiver logado-->
+<div *ngIf="(authService.user | async)" class="col-6 mx-auto">
+  <div class="content">
+    <div class="box box-info">
+      <div class="box-header with-border">
+        <h3 class="box-title">Formulário</h3>
+      </div>
+      <!-- End of .box-header -->
+      <!-- Start form -->
+      <form class="form-horizontal">
+        <div class="box-body">
+          <div class="form-group">
+            <label class="col-sm-2 control-label">Nome</label>
+            <div class="col-sm-10">
+              <input class="form-control" #n ngModel placeholder="Nome">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-2 control-label">Horas</label>
+            <div class="col-sm-10">
+              <input class="form-control" #h ngModel placeholder="Horas trabalhadas">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-2 control-label">Data</label>
+            <div class="col-sm-10">
+              <input class="form-control" #d ngModel placeholder="dd/mm/yyyy">
+            </div>
+          </div>
+
+          <div class="box-footer">
+            <button class="btn btn-primary btn-flat" (click)="addItem(n.value, h.value, d.value)">Enviar</button>
+          </div>
+        </div>
+      </form>
+    </div>
+    <!-- End of .box -->
+  </div>
+  <!-- End of .content -->
+</div>
+<!-- End of .col-md-6 -->

@@ -1,0 +1,78 @@
+<header class="main-header">
+  <nav class="navbar navbar-static-top">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a [routerLink]="['/']" class="navbar-brand">
+          <b>Extra</b>Hour</a>
+        <button *ngIf="(authService.user | async)" type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse"
+          aria-expanded="false">
+          <i class="fa fa-bars"></i>
+        </button>
+      </div>
+      <div *ngIf="(authService.user | async)">
+        <div class="navbar-collapse pull-left collapse" id="navbar-collapse" aria-expanded="false" style="height: 1px;">
+          <ul class="nav navbar-nav">
+            <li routerLinkActive="active">
+              <a [routerLink]="['/registrar']">Registrar </a>
+            </li>
+            <li routerLinkActive="active">
+              <a [routerLink]="['/consultar']">Consultar</a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="navbar-custom-menu pull-right">
+          <ul class="nav navbar-nav">
+            <!-- User Account: style can be found in dropdown.less -->
+            <li class="dropdown user user-menu">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                <img [src]="(authService.user | async)?.photoURL" class="user-image" alt="User Image">
+                <span class="hidden-xs">{{ (authService.user | async)?.displayName }}</span>
+              </a>
+              <ul class="dropdown-menu">
+                <!-- User image -->
+                <li class="user-header">
+                  <img [src]="(authService.user | async)?.photoURL" class="img-circle" alt="User Image">
+
+                  <p>
+                    {{ (authService.user | async)?.displayName }}
+                    <small>A</small>
+                  </p>
+                </li>
+                
+                <!-- EDITAR EDITAR EDITAR -->
+                <!-- Menu Body -->
+                <li class="user-body">
+                  <div class="row">
+                    <div class="col-xs-4 text-center">
+                      <a href="#">Followers</a>
+                    </div>
+                    <div class="col-xs-4 text-center">
+                      <a href="#">Sales</a>
+                    </div>
+                    <div class="col-xs-4 text-center">
+                      <a href="#">Friends</a>
+                    </div>
+                  </div>
+                  <!-- /.row -->
+                </li>
+                <!-- Menu Footer-->
+                <li class="user-footer">
+                  <div class="pull-left">
+                    <a href="#" class="btn btn-default btn-flat">Profile</a>
+                  </div>
+                  <div class="pull-right">
+                    <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                  </div>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+      <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.content-fluid -->
+  </nav>
+</header>

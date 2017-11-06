@@ -1,0 +1,40 @@
+<section *ngIf="!(authService.user | async)" class="content">
+  <div class="jumbotron welcome-jumbotron">
+    <h1>Bem vindo ao ExtraHour!</h1>
+    <p>
+      Faça login e aproveite!
+    </p>
+    <a class="btn btn-primary btn-lg" (click)="login()">
+      <i class="fa fa-fw fa-google-plus"></i> Login</a>
+  </div>
+</section>
+
+<section class="content">
+  <div class="col-md-3">
+    <div class="box box-primary" *ngIf="authService.user | async">
+      <div class="box-body box-profile">
+        <img class="profile-user-img img-responsive img-circle" [src]="(authService.user | async)?.photoURL" alt="Error">
+
+        <h3 class="profile-username text-center">{{ (authService.user | async)?.displayName }}</h3>
+
+        <p class="text-muted text-center">Alguma coisa aqui</p>
+
+        <ul class="list-group list-group-unbordered">
+          <li class="list-group-item">
+            <b>Alguma</b>
+            <a class="pull-right">0</a>
+          </li>
+          <li class="list-group-item">
+            <b>Coisa</b>
+            <a class="pull-right">0</a>
+          </li>
+          <li class="list-group-item">
+            <b>Aqui</b>
+            <a class="pull-right">0</a>
+          </li>
+        </ul>
+        <a class="btn btn-primary btn-block" (click)="logout()"><b>Logout</b></a>
+      </div>
+    </div>
+  </div>
+</section>
